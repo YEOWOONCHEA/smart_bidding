@@ -2,42 +2,154 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스마트비딩(Smart Bidding) 전술 레이더</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>1004MAS VVIP Bidding</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(22, 27, 34, 0.8); backdrop-filter: blur(10px); border: 1px solid #10b981; }
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;500;700;900&display=swap');
+        body { font-family: 'Pretendard', sans-serif; background-color: #0d1117; color: #f0f6fc; }
+        
+        .card-bg {
+            background: linear-gradient(145deg, #161b22 0%, #0d1117 100%);
+            border: 1px solid #30363d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .highlight-text {
+            background: linear-gradient(90deg, #58a6ff, #3fb950);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pulse-dot {
+            height: 12px;
+            width: 12px;
+            background-color: #3fb950;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #3fb950;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.3; }
+        }
+
+        /* 텔레그램 버튼 그라데이션 */
+        .tg-btn {
+            background: linear-gradient(135deg, #0088cc 0%, #005580 100%);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tg-btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
-<body class="p-8">
-    <h1 class="text-3xl font-extrabold text-emerald-500 mb-2"><i class="fas fa-gavel"></i> 1004MAS SMART BIDDING</h1>
-    <p class="text-gray-400 mb-8">조달청 국가 입찰 및 수주 방어망</p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="glass p-6 rounded-xl">
-            <h2 class="text-xl font-bold text-white mb-4">현재 목표 공고</h2>
-            <ul class="space-y-4">
-                <li class="bg-black/50 p-3 rounded-lg flex justify-between items-center">
-                    <span class="text-white truncate">1순위: [무안군] 도로 아스콘 포장 공사</span>
-                    <span class="text-emerald-400 font-bold ml-4">1.2억</span>
-                </li>
-                <li class="bg-black/50 p-3 rounded-lg flex justify-between items-center">
-                    <span class="text-white truncate">2순위: [담양군] 마을회관 내진 보강</span>
-                    <span class="text-emerald-400 font-bold ml-4">3.5억</span>
-                </li>
-            </ul>
+<body class="p-4 md:p-8 pb-32">
+
+    <!-- 상단 헤더 (간결함 강조) -->
+    <header class="flex justify-between items-center mb-8 pt-4">
+        <div>
+            <h1 class="text-2xl md:text-3xl font-black tracking-tight">1004MAS <span class="highlight-text">BIDDING</span></h1>
+            <p class="text-gray-400 text-sm mt-1 font-medium">VVIP 전술 지휘 모니터</p>
+        </div>
+        <div class="flex items-center gap-2 bg-[#161b22] px-3 py-1.5 rounded-full border border-[#30363d]">
+            <span class="pulse-dot"></span>
+            <span class="text-xs font-bold text-gray-300">G2B 감청중</span>
+        </div>
+    </header>
+
+    <!-- 오늘의 브리핑 메시지 -->
+    <div class="mb-10 pl-2 border-l-4 border-blue-500">
+        <h2 class="text-xl md:text-2xl font-bold leading-tight">
+            사령관님,<br/>무안/담양 지역 알짜 토목공사<br/>
+            <span class="text-blue-400 font-black text-2xl md:text-3xl">2건</span> 대기 중입니다.
+        </h2>
+    </div>
+
+    <!-- 타겟 공고 카드 1 -->
+    <div class="card-bg rounded-2xl p-6 mb-6">
+        <div class="flex justify-between items-start mb-4">
+            <span class="bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30">
+                1순위 타겟
+            </span>
+            <span class="text-gray-500 text-sm font-medium">D-4</span>
         </div>
         
-        <div class="glass p-6 rounded-xl border-l-4 border-emerald-500">
-            <h2 class="text-lg font-bold text-white mb-2"><i class="fas fa-shield-alt"></i> 비상망 상태 (Firecrawl Guard)</h2>
-            <p class="text-gray-300 text-sm leading-relaxed">
-                조달청 G2B API 정상. 대체 파싱망 대기 중. 입찰 서류 머신러닝 분석 준비 완료.
-            </p>
+        <h3 class="text-2xl font-black mb-2 leading-snug break-keep">[무안군] 도로 아스콘 포장 공사</h3>
+        <p class="text-gray-400 font-medium mb-6">토목기반 / 적격심사 (경쟁률 낮음 예상)</p>
+        
+        <div class="flex items-end justify-between border-t border-[#30363d] pt-5 mb-6">
+            <div>
+                <p class="text-sm text-gray-400 font-medium mb-1">기초 예산액</p>
+                <p class="text-3xl font-black text-emerald-400">1.2억</p>
+            </div>
+            <div class="text-right">
+                <p class="text-sm text-gray-400 font-medium mb-1">제갈량 AI 확률</p>
+                <p class="text-xl font-bold text-white">88%</p>
+            </div>
+        </div>
+
+        <div class="flex gap-3">
+            <button class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition duration-200">
+                👍 사무실 투찰명령
+            </button>
+            <button class="w-16 bg-[#21262d] hover:bg-[#30363d] text-gray-400 font-bold rounded-xl border border-[#30363d] transition duration-200">
+                패스
+            </button>
         </div>
     </div>
 
-    <div class="mt-8 text-center"><a href="https://www.1004mas.com" class="text-emerald-500 hover:text-white underline">포탈(Portal) 복귀</a></div>
+    <!-- 타겟 공고 카드 2 -->
+    <div class="card-bg rounded-2xl p-6 mb-12 opacity-80">
+        <div class="flex justify-between items-start mb-4">
+            <span class="bg-yellow-500/20 text-yellow-500 text-xs font-bold px-3 py-1 rounded-full border border-yellow-500/30">
+                2순위 타겟
+            </span>
+            <span class="text-gray-500 text-sm font-medium">D-7</span>
+        </div>
+        
+        <h3 class="text-xl font-bold mb-2 leading-snug break-keep">[담양군] 마을회관 내진 보강 공사</h3>
+        
+        <div class="flex items-end justify-between border-t border-[#30363d] pt-5 mb-6 mt-4">
+            <div>
+                <p class="text-sm text-gray-400 font-medium mb-1">기초 예산액</p>
+                <p class="text-2xl font-black text-emerald-400">3.5억</p>
+            </div>
+            <div class="text-right">
+                <p class="text-sm text-gray-400 font-medium mb-1">AI 확률</p>
+                <p class="text-lg font-bold text-white">65%</p>
+            </div>
+        </div>
+
+        <div class="flex gap-3">
+            <button class="flex-1 bg-[#21262d] text-gray-300 font-bold text-lg py-3 rounded-xl border border-[#30363d]">
+                상세 보기
+            </button>
+            <button class="w-16 bg-[#21262d] text-gray-500 font-bold rounded-xl border border-[#30363d]">
+                패스
+            </button>
+        </div>
+    </div>
+
+    <!-- 하단 고정 텔레그램 연결 바 (모바일 특화) -->
+    <div class="fixed bottom-0 left-0 w-full p-4 bg-[#0d1117] border-t border-[#30363d] flex justify-center z-50">
+        <div class="w-full max-w-md bg-[#161b22] border border-[#30363d] rounded-2xl p-4 flex items-center justify-between shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+            <div class="flex items-center gap-3">
+                <!-- 텔레그램 아이콘 생략, 텍스트로 강조 -->
+                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-xl">
+                    ✈️
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm">텔레그램 봇 연동 대기중</h4>
+                    <p class="text-gray-400 text-xs">폰에서 바로 알림을 받으세요</p>
+                </div>
+            </div>
+            <button class="tg-btn text-white font-bold text-xs px-4 py-2 rounded-lg shadow-lg">
+                연결하기
+            </button>
+        </div>
+    </div>
+
 </body>
 </html>
